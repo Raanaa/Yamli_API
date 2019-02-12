@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h3> Trying Yamli API</h3>
+
+  <textarea id="textbox_id" rows="4" cols="50" placeholder="enter your franco text here ." ></textarea>
+
+<!-- YAMLI CODE START -->
+<script type="text/javascript" src="https://api.yamli.com/js/yamli_api.js"></script>
+<script type="text/javascript">
+  if (typeof(Yamli) == "object" && Yamli.init( { uiLanguage: "en" , startMode: "onOrUserDefault" } ))
+  {
+    Yamli.yamlify( "textbox_id", { settingsPlacement: "inside" } );
+  }
+</script>
+<!-- YAMLI CODE END -->
+
+</br>
+ <button id="myBtn" onclick="displayResult()"> Get Arabic text</button>
+
+  
+  <p >your text in arabic :: </p>
+  <p id="translated_franco"> </p>
+  
+  <script>
+  function displayResult() {
+   document.getElementById("translated_franco").innerHTML = document.getElementById("textbox_id").value;
+  }
+
+
+  var input = document.getElementById("textbox_id");
+  input.addEventListener("keyup", function(event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+    document.getElementById("myBtn").click();
+  }
+});
+  
+  </script>
+
+</body>
+</html>
